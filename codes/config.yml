@@ -1,0 +1,23 @@
+# config.yml
+base:
+  # 启动的策略文件路径
+  strategy_file: .huice.py
+  # 回测起始日期
+  start_date: 2015-06-01
+  # 回测结束日期(如果是实盘，则忽略该配置)
+  end_date: 2016-01-01
+  # 目前支持 `1d` (日线回测) 和 `1m` (分钟线回测)，如果要进行分钟线，请注意是否拥有对应的数据源，目前开源版本是不提供对应的数据源的。
+  frequency: 1d
+  # Benchmark，如果不设置，默认没有基准参照。
+  benchmark: ~
+  accounts:
+    # 设置 股票为交易品种  初始资金为 100000 元
+    stock:  100000
+extra:
+  # 开启日志输出
+  log_level: verbose
+mod:
+  sys_analyser:
+    enabled: true
+    # 开启 plot 功能
+    plot: true
