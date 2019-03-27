@@ -4,7 +4,7 @@ Created on Fri Mar  8 10:15:34 2019
 
 @author: sijian.xuan
 """
-mainpath = 'I:/jointquantnew/'
+mainpath = 'I:/stockautomation/'
 path = mainpath + 'codes'
 pathworkfile = mainpath + 'workfiles'
 pathplot = mainpath + 'plots'
