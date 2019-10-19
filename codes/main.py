@@ -4,7 +4,7 @@ Created on Fri Mar  8 10:15:34 2019
 
 @author: sijian.xuan
 """
-mainpath = 'I:/stockautomation/'
+mainpath = 'E:/github/scrapy/stockautomation/'
 path = mainpath + 'codes'
 pathworkfile = mainpath + 'workfiles'
 pathplot = mainpath + 'plots'
@@ -225,47 +225,47 @@ goldenx = findgoldenx(dataallkdj,dataallmacd)
 print("goldenx find", goldenx)
 
 goldenx.to_csv(pathworkfile + "/goldenx"+today+".csv")
-
-for code in goldenx:
-#        plot kdj
-    dataframe = get_data(code)
-    x = dataframe['date']
-    xi = [i for i in range(0, len(x))]
-        
-    fig, ax = plt.subplots(1,1,figsize=(200,20))
-    ax.plot(xi,dataframe['k'], color = 'orange')
-    ax.plot(xi,dataframe['d'], color = 'red')
-    ax.plot(xi,dataframe['j'], color = 'black')
-    ax.grid()
-    plt.xticks(xi, x, rotation=45)
-    ax.legend()
-    #   plt.show()
-    plt.savefig(pathplot + '/kdj_'+ code + today +'.png')
-
-#        plot macd
-       
-    x = dataframe['date']
-    xi = [i for i in range(0, len(x))]
-    
-    y_above = np.zeros(dataframe.shape[0])
-    y_below = np.zeros(dataframe.shape[0])
-
-    for i in range(dataframe.shape[0]):
-        if dataframe['macd'][i] > 0:
-            y_above[i] = dataframe['macd'][i]
-        elif dataframe['macd'][i] < 0:
-            y_below[i] = dataframe['macd'][i]
-        
-    fig, ax = plt.subplots(1,1,figsize=(200,20))
-    ax.plot(xi,dataframe['diff'], color = 'black')
-    ax.plot(xi,dataframe['dea'], color = 'blue')
-    ax.bar(xi, y_above, color="red",label="Above average")
-    ax.bar(xi, y_below, color="green",label="below average")
-    ax.grid()
-    plt.xticks(xi, x, rotation=45)
-    ax.legend()
-    #    plt.show()
-    plt.savefig(pathplot + '/macd_'+ code + today +'.png')
+#
+#for code in goldenx:
+##        plot kdj
+#    dataframe = get_data(code)
+#    x = dataframe['date']
+#    xi = [i for i in range(0, len(x))]
+#        
+#    fig, ax = plt.subplots(1,1,figsize=(200,20))
+#    ax.plot(xi,dataframe['k'], color = 'orange')
+#    ax.plot(xi,dataframe['d'], color = 'red')
+#    ax.plot(xi,dataframe['j'], color = 'black')
+#    ax.grid()
+#    plt.xticks(xi, x, rotation=45)
+#    ax.legend()
+#    #   plt.show()
+#    plt.savefig(pathplot + '/kdj_'+ code + today +'.png')
+#
+##        plot macd
+#       
+#    x = dataframe['date']
+#    xi = [i for i in range(0, len(x))]
+#    
+#    y_above = np.zeros(dataframe.shape[0])
+#    y_below = np.zeros(dataframe.shape[0])
+#
+#    for i in range(dataframe.shape[0]):
+#        if dataframe['macd'][i] > 0:
+#            y_above[i] = dataframe['macd'][i]
+#        elif dataframe['macd'][i] < 0:
+#            y_below[i] = dataframe['macd'][i]
+#        
+#    fig, ax = plt.subplots(1,1,figsize=(200,20))
+#    ax.plot(xi,dataframe['diff'], color = 'black')
+#    ax.plot(xi,dataframe['dea'], color = 'blue')
+#    ax.bar(xi, y_above, color="red",label="Above average")
+#    ax.bar(xi, y_below, color="green",label="below average")
+#    ax.grid()
+#    plt.xticks(xi, x, rotation=45)
+#    ax.legend()
+#    #    plt.show()
+#    plt.savefig(pathplot + '/macd_'+ code + today +'.png')
 
 
 
